@@ -12,7 +12,6 @@ Built as a BIT final project for the University of Colombo School of Computing (
 |------|----------|
 | XAMPP (PHP 8.1+, Apache, MySQL) | https://www.apachefriends.org |
 | Composer | https://getcomposer.org/download |
-| Node.js + npm (optional — only needed to compile CSS/JS) | https://nodejs.org |
 
 After installing XAMPP, open the **XAMPP Control Panel** and **Start** both **Apache** and **MySQL**.
 
