@@ -10,8 +10,9 @@
         .body { padding: 30px; color: #333; line-height: 1.6; }
         .ticket-ref { display: inline-block; background: #0a1832; color: #fff; padding: 4px 12px; border-radius: 4px; font-weight: bold; font-size: 14px; margin-bottom: 16px; }
         .message { background: #f8f8f8; border-left: 4px solid #004a43; padding: 12px 16px; margin: 16px 0; border-radius: 0 4px 4px 0; }
-        .detail-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #eee; font-size: 14px; }
-        .detail-label { color: #888; }
+        .detail-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .detail-table td { padding: 8px 0; border-bottom: 1px solid #eee; vertical-align: top; }
+        .detail-label { color: #888; width: 110px; }
         .btn { display: inline-block; margin-top: 20px; padding: 10px 24px; background: #004a43; color: #fff !important; text-decoration: none; border-radius: 4px; font-weight: bold; }
         .footer { background: #f4f4f4; padding: 16px 30px; font-size: 12px; color: #999; text-align: center; }
     </style>
@@ -28,26 +29,28 @@
 
         <div class="message">{{ $emailMessage }}</div>
 
-        <div class="detail-row">
-            <span class="detail-label">Subject</span>
-            <span>{{ $ticket->subject }}</span>
-        </div>
-        <div class="detail-row">
-            <span class="detail-label">Category</span>
-            <span>{{ $ticket->category->name }}</span>
-        </div>
-        <div class="detail-row">
-            <span class="detail-label">Priority</span>
-            <span>{{ $ticket->priority->name }}</span>
-        </div>
-        <div class="detail-row">
-            <span class="detail-label">Status</span>
-            <span>{{ $ticket->statusLabel() }}</span>
-        </div>
-        <div class="detail-row">
-            <span class="detail-label">Raised by</span>
-            <span>{{ $ticket->requester->name }}</span>
-        </div>
+        <table class="detail-table">
+            <tr>
+                <td class="detail-label">Subject</td>
+                <td>{{ $ticket->subject }}</td>
+            </tr>
+            <tr>
+                <td class="detail-label">Category</td>
+                <td>{{ $ticket->category->name }}</td>
+            </tr>
+            <tr>
+                <td class="detail-label">Priority</td>
+                <td>{{ $ticket->priority->name }}</td>
+            </tr>
+            <tr>
+                <td class="detail-label">Status</td>
+                <td>{{ $ticket->statusLabel() }}</td>
+            </tr>
+            <tr>
+                <td class="detail-label">Raised by</td>
+                <td>{{ $ticket->requester->name }}</td>
+            </tr>
+        </table>
 
         <a href="{{ config('app.url') }}/tickets/{{ $ticket->id }}" class="btn">View Ticket</a>
     </div>

@@ -33,7 +33,7 @@ Start **Apache** and **MySQL** from the XAMPP Control Panel.
 
 ### 3 — Navigate to the project folder
 ```bash
-cd "d:\Demo Projects\Other Projects\IT HELP Desk Ticketing System\helpdesk"
+cd path/to/helpdesk
 ```
 
 ### 4 — Install PHP dependencies
