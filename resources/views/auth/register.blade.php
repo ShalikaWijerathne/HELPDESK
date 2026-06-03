@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Register — IT Help Desk</title>
+    <link rel="shortcut icon" href="{{ URL::asset('assets/images/favicon.ico') }}">
+    <link href="{{ URL::asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ URL::asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ URL::asset('assets/css/style.css') }}" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="preloader"><div id="status"><div class="spinner"></div></div></div>
+
+<div class="accountbg" style="background: linear-gradient(to bottom, rgb(6, 75, 92) 0%, #4096ee 100%);"></div>
+
+<div class="wrapper-page">
+
+    <div class="card" style="background-color: rgba(245, 245, 245, 0.8);">
+        <div class="card-body">
+
+            <h3 class="text-center m-0">
+                <span style="font-size:1.4rem; font-weight:700; color:#064b5c;">IT Help Desk</span>
+            </h3>
+
+            <div class="p-3">
+                <h4 class="text-muted font-18 m-b-5 text-center">Create Account</h4>
+                <p class="text-muted text-center">Register to submit support tickets</p>
+
+                @if($errors->any())
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+                        {{ $errors->first() }}
+                    </div>
+                @endif
+
+                <form class="form-horizontal m-t-30" method="POST" action="{{ route('register') }}">
+                    @csrf
+
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" class="form-control" id="name" name="name"
+                               value="{{ old('name') }}" placeholder="Enter your full name" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email"
+                               value="{{ old('email') }}" placeholder="Enter email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password"
+                               placeholder="Min 8 characters" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password_confirmation">Confirm Password</label>
+                        <input type="password" class="form-control" id="password_confirmation"
+                               name="password_confirmation" placeholder="Repeat password" required>
+                    </div>
+
+                    <div class="form-group row m-t-20">
+                        <div class="col-12 text-right">
+                            <button class="btn btn-primary w-md waves-effect waves-light" type="submit">Register</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="m-t-40 text-center">
+        <p>Already have an account?
+            <a href="{{ route('login') }}" class="font-500 font-14 text-white"> Sign In</a>
+        </p>
+    </div>
+
+</div>
+
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/js/popper.min.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.slimscroll.js') }}"></script>
+<script src="{{ asset('assets/js/waves.js') }}"></script>
+<script src="{{ asset('assets/js/app.js') }}"></script>
+</body>
+</html>
