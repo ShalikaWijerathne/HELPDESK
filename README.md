@@ -194,3 +194,7 @@ helpdesk/
 **500 Server Error** — Run `php artisan config:clear` then `php artisan cache:clear`, then try again.
 
 **File uploads not working** — Run `php artisan storage:link` if you haven't already.
+
+**`composer install` fails with "zip extension missing"** — Open `C:\xampp\php\php.ini`, find `;extension=zip`, remove the semicolon, save, and re-run `composer install`.
+
+**"bootstrap/cache directory must be present and writable"** — Run `mkdir bootstrap\cache` in the project folder, then re-run `composer install`.
